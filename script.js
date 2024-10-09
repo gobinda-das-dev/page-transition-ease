@@ -12,7 +12,7 @@ const paths = {
    step1: {
       unfilled: 'M 0 100 V 100 Q 50 100 100 100 V 100 z',
       inBetween: {
-         curve1: 'M 0 100 V 100 Q 50 0 100 100 V 100 z',
+         curve1: 'M 0 100 V 70 Q 50 -120 100 70 V 100 z',
          curve2: 'M 0 100 V 50 Q 50 100 100 50 V 100 z'
       },
       filled: 'M 0 100 V 0 Q 50 0 100 0 V 100 z',
@@ -42,30 +42,30 @@ const reveal = () => {
       })
       .to(overlayPath, {
          duration: 1,
-         ease: 'expo.in',
+         ease: 'power4.in',
          attr: { d: paths.step1.inBetween.curve1 }
       }, 0)
       .to(overlayPath, {
-         duration: 0.5,
-         ease: 'power1',
+         duration: 0.8,
+         ease: 'power4.out',
          attr: { d: paths.step1.filled },
          //? --- Page change occurs here ---
-      })
+      }, '-=0.1')
 
-      .set(overlayPath, {
-         attr: { d: paths.step2.filled }
-      })
+      // .set(overlayPath, {
+      //    attr: { d: paths.step2.filled }
+      // })
 
-      .to(overlayPath, {
-         duration: 0.2,
-         ease: 'sine.in',
-         attr: { d: paths.step2.inBetween.curve1 }
-      })
-      .to(overlayPath, {
-         duration: 1,
-         ease: 'power4',
-         attr: { d: paths.step2.unfilled }
-      });
+      // .to(overlayPath, {
+      //    duration: 0.2,
+      //    ease: 'sine.in',
+      //    attr: { d: paths.step2.inBetween.curve1 }
+      // })
+      // .to(overlayPath, {
+      //    duration: 1,
+      //    ease: 'power4',
+      //    attr: { d: paths.step2.unfilled }
+      // });
 }
 
 const unreveal = () => {
