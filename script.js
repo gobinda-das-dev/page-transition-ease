@@ -46,26 +46,26 @@ const reveal = () => {
          attr: { d: paths.step1.inBetween.curve1 }
       }, 0)
       .to(overlayPath, {
-         duration: 0.8,
-         ease: 'power4.out',
+         duration: 0.4,
+         ease: 'power1.out',
          attr: { d: paths.step1.filled },
          //? --- Page change occurs here ---
       }, '-=0.1')
 
-      // .set(overlayPath, {
-      //    attr: { d: paths.step2.filled }
-      // })
+      .set(overlayPath, {
+         attr: { d: paths.step2.filled }
+      })
 
-      // .to(overlayPath, {
-      //    duration: 0.2,
-      //    ease: 'sine.in',
-      //    attr: { d: paths.step2.inBetween.curve1 }
-      // })
-      // .to(overlayPath, {
-      //    duration: 1,
-      //    ease: 'power4',
-      //    attr: { d: paths.step2.unfilled }
-      // });
+      .to(overlayPath, {
+         duration: 0.2,
+         ease: 'sine.in',
+         attr: { d: paths.step2.inBetween.curve1 }
+      })
+      .to(overlayPath, {
+         duration: 1,
+         ease: 'power4',
+         attr: { d: paths.step2.unfilled }
+      });
 }
 
 const unreveal = () => {
